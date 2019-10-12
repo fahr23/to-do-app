@@ -12,7 +12,5 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
     Optional<Todo> findByIdAndUser(Long todoId, User user);
 
-    @Override
-    void deleteById(Long todoId);
-
+    void deleteByIdAndUser( Long itemId, User user );
 }
