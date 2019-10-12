@@ -1,0 +1,17 @@
+.Login-container{
+    text-align: center;
+  	margin-top: 300px;
+}
+.Login-form-container{
+	height: 320px;
+  	width: 500px;
+  	display: inline-block;
+}
+.Login-form-heading{
+	padding-top: 30px;
+	color: #999;
+	text-align: center;
+}
+.Login_logo{
+  text-align: center;
+}

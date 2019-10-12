@@ -1,0 +1,5 @@
+.TodoList_container .TodoList_button_add{
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+}

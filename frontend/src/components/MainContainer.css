@@ -1,0 +1,12 @@
+.MainContainer_header{
+	position: relative;
+}
+.MainContainer_header .MainContainer_logout{
+	position: absolute;
+    top: -12px;
+    right: 16px;
+}
+.MainContainer_container{
+  	padding: 47px;
+  	margin-bottom: 50px;
+}
