@@ -1,5 +1,6 @@
 package com.app.todo.items;
 
+import com.app.todo.security.AuthenticatedUser;
 import com.app.todo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,12 @@ public class TodoController {
     private TodoRepository todoRepository;
 
     @GetMapping
-    public List<Todo> getTodos(User user) {
+    public List<Todo> getTodos( @AuthenticatedUser User user) {
         return todoRepository.findAllByUser(user);
     }
 
     @PostMapping
-    public Todo addTodo(User user, @RequestBody TodoDTO todoDTO) {
+    public Todo addTodo( @AuthenticatedUser  User user, @RequestBody TodoDTO todoDTO) {
         Todo todo = new Todo();
         todo.setUser(user);
         return todoRepository.save(mapper.todoMapper(todo, todoDTO));
@@ -30,7 +31,7 @@ public class TodoController {
 
     @PutMapping("{todoId}")
     public Todo updateTodo(@PathVariable(name = "todoId") Long todoId,
-                           User user,
+                           @AuthenticatedUser  User user,
                            @RequestBody TodoDTO todoDTO) {
         Todo todo=todoRepository.findByIdAndUser(todoId, user).orElseThrow(
                 NotFoundExceoption::new);
@@ -40,7 +41,7 @@ public class TodoController {
     }
 
     @DeleteMapping("{todoId}")
-    public void deleteTodo(User user, @PathVariable(name = "todoId") Long todoId)
+    public void deleteTodo( @AuthenticatedUser  User user, @PathVariable(name = "todoId") Long todoId)
     {
         todoRepository.deleteByIdAndUser(todoId, user);
     }
