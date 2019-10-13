@@ -9,7 +9,7 @@ const Login = props => (
     <Logo className="Login_logo"/>
     <Paper className="Login-form-container" elevation={10} >
 
-      <p className="Login-form-heading">Login to be productive</p>
+      <p className="Login-form-heading">Login (kullanici->admin/ sifre->admin)</p>
 
       <LoginForm {...props}/>
 

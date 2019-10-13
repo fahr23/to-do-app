@@ -64,7 +64,7 @@ class TodoList extends Component {
       });
   }
 
-  addTodoToState(newTodo){    
+  addTodoToState(newTodo){
     let updated = { ...this.state.todos }
     updated[newTodo.id] = this.createBlankTodo(newTodo.text, newTodo.completed, newTodo.lastUpdate)
     this.updateTodosState(updated);
@@ -87,11 +87,11 @@ class TodoList extends Component {
         <Divider />
 
         {this.renderCheckboxList(this.state.todos)}
-        
-        <Button variant="fab" 
-            color="primary" 
-            aria-label="add" 
-            className="TodoList_button_add" 
+
+        <Button variant="fab"
+            color="primary"
+            aria-label="add"
+            className="TodoList_button_add"
             onClick={this.handleAddTodo}>
           <Icon>add</Icon>
         </Button>
@@ -103,12 +103,12 @@ class TodoList extends Component {
 
     if(items !== null && Object.keys(items).length > 0)
       return (
-      <CheckboxList items={items} 
-        toggleField="completed" 
+      <CheckboxList items={items}
+        toggleField="completed"
         textField="text"
         onItemDelete={this.handleItemDelete}
         onItemUpdate={this.handleItemUpdate}/>)
-    return <p>You don't have any Todo items. Get productive, add some.</p>;
+    return <p>You don't have any Todo items. Add some.</p>;
   }
 }
 

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class TodoDTO {
 
-    private Boolean isCompleted;
+    private Boolean completed;
     private String text;
 
 

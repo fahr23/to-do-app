@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 public class ToDoMapper {
 
     public Todo todoMapper(Todo todo, TodoDTO todoDTO){
-        todo.setTodoText( todoDTO.getText() );
-        todo.setIsComplete( todoDTO.getIsCompleted() );
+        todo.setText( todoDTO.getText() );
+        todo.setCompleted( todoDTO.getCompleted());
         return todo;
 
     }

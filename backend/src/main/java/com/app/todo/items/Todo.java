@@ -4,7 +4,6 @@ import com.app.todo.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -20,9 +19,9 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Boolean isComplete=false;
-    private String todoText;
-    private ZonedDateTime updateTime;
+    private Boolean completed = false;
+    private String text;
+    private ZonedDateTime lastUpdate;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -33,7 +32,7 @@ public class Todo {
     @PreUpdate
     @PrePersist
     public void preUpdate() {
-        updateTime = Instant.now().atZone( ZoneId.systemDefault() );
+        lastUpdate = Instant.now().atZone( ZoneId.systemDefault() );
     }
 
 
